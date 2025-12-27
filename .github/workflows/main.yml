@@ -32,19 +32,19 @@ jobs:
         run: |
           echo $CSV_URL
  
-      # Install mlflow and dependencies
+      # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install numpy==2.3.5 pandas==2.3.3 scikit-learn==1.8.0 imbalanced-learn
           
-      # Run as a mlflow project
+      # Run automation script
       - name: Run automation script
         run: |
           python preprocessing/automate_fathurazka.py 
  
-      # Save models to GitHub Repository
-      - name: Save mlruns to repo
+      # Save dataset to GitHub Repository
+      - name: Save dataset to repository
         run: |
           git config --global user.name "${{ secrets.username }}"
           git config --global user.email "${{ secrets.email }}"
